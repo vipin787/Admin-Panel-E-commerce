@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { AiOutlineDashboard, AiOutlineShoppingCart, AiOutlineUserAdd } from 'react-icons/ai';
+import { AiOutlineDashboard, AiOutlineShoppingCart, AiOutlineUserAdd, AiOutlineBgColors } from 'react-icons/ai';
 import { SiBrandfolder } from 'react-icons/si';
+import { BiCategoryAlt } from 'react-icons/bi';
+import { ImBlog } from 'react-icons/im';
+import { FaClipboardList, FaBloggerB } from 'react-icons/fa';
+
 import { Layout, Menu, Button, theme } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,8 +25,8 @@ const MainLayout = () => {
           theme="dark"
           mode="inline"
           defaultSelectedKeys={['1']}
-          onClick = {({key}) => {
-            if(key == "signout") {
+          onClick={({ key }) => {
+            if (key == "signout") {
 
             } else {
               navigate(key);
@@ -66,15 +70,62 @@ const MainLayout = () => {
                 },
                 {
                   key: "category",
-                  icon: <SiBrandfolder className="fs-4" />,
-                  label: "Brand",
+                  icon: <BiCategoryAlt className="fs-4" />,
+                  label: "Category",
                 },
                 {
                   key: "list-category",
-                  icon: <SiBrandfolder className="fs-4" />,
+                  icon: <BiCategoryAlt className="fs-4" />,
                   label: "Category List",
                 },
+                {
+                  key: "color",
+                  icon: <AiOutlineBgColors className="fs-4" />,
+                  label: "Color",
+                },
+                {
+                  key: "list-color",
+                  icon: <AiOutlineBgColors className="fs-4" />,
+                  label: "Color List",
+                },
               ]
+            },
+            {
+              key: 'orders',
+              icon: <FaClipboardList className="fs-4" />,
+              label: 'Orders',
+            },
+            {
+              key: 'blog',
+              icon: <FaBloggerB className="fs-4" />,
+              label: 'Blog',
+              children: [
+                {
+                  key: 'blog',
+                  icon: <ImBlog className="fs-4" />,
+                  label: 'Add blog',
+                },
+                {
+                  key: 'blog-list',
+                  icon: <FaBloggerB className="fs-4" />,
+                  label: 'Blog List',
+                },
+                {
+                  key: 'blog-category',
+                  icon: <ImBlog className="fs-4" />,
+                  label: 'Add Blog Category',
+                },
+                {
+                  key: 'blog-category-list',
+                  icon: <FaBloggerB className="fs-4" />,
+                  label: 'Blog Category List',
+                },
+              ],
+            },
+            {
+              key: 'enquiries',
+              icon: <FaClipboardList className="fs-4" />,
+              label: 'Enquiries',
             },
           ]}
         />
